@@ -12,28 +12,66 @@
 <body class="bg-gray-900 text-white">
 
   <!-- Navbar -->
-  <nav class="flex items-center justify-between p-4 bg-gray-800 shadow-md sticky top-0 z-50">
-    <!-- Left: Logo -->
-    <div class="flex items-center">
-      <a href="index.html">
-        <img src="assets/images/VGSwide.png" alt="GUCC VGS Logo" class="h-12 w-auto">
-      </a>
-    </div>
+<nav class="bg-gray-800 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Left: Logo -->
+      <div class="flex-shrink-0">
+        <a href="index.html">
+          <img src="assets/images/VGSwide.png" alt="GUCC VGS Logo" class="h-12 w-auto">
+        </a>
+      </div>
 
-    <!-- Center: Links -->
-    <ul class="flex space-x-6 font-semibold absolute left-1/2 transform -translate-x-1/2">
-      <li><a href="index.html#updates" class="hover:text-green-400">Updates</a></li>
-      <li><a href="index.html#activities" class="hover:text-green-400">Activities</a></li>
-      <li><a href="executive.html" class="hover:text-green-400">Technical Committee</a></li>
-    </ul>
+      <!-- Center: Links -->
+      <div class="hidden md:flex space-x-6 font-semibold">
+        <a href="index.html#updates" class="hover:text-green-400">Updates</a>
+        <a href="index.html#activities" class="hover:text-green-400">Activities</a>
+        <a href="executive.html" class="hover:text-green-400">Committee</a>
+      </div>
 
-    <!-- Right: Something (like a button or icon) -->
-    <div>
-      <a href="contact.html" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
-        Contact
-      </a>
+      <!-- Right: Button -->
+      <div class="hidden md:flex">
+        <button onclick="openModal()" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
+          Contact
+        </button>
+      </div>
+
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden">
+        <button id="menu-toggle" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+    <a href="index.html#updates" class="block hover:text-green-400">Updates</a>
+    <a href="index.html#activities" class="block hover:text-green-400">Activities</a>
+    <a href="executive.html" class="block hover:text-green-400">Technical Committee</a>
+    <a href="javascript:void(0);" onclick="openModal()" class="block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg w-max">
+      Contact
+    </a>    
+  </div>
+</nav>
+
+<!-- Toggle Mobile Menu Script -->
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
   
 
   <!-- Hero Section -->
@@ -97,30 +135,43 @@
 
   <!-- Updates Section -->
   <section id="updates" class="py-16 px-8 md:px-20">
-    <h2 class="text-3xl font-bold text-green-400 mb-8">Latest Updates</h2>
+    <h2 class="text-3xl font-bold text-green-400 mb-8">Latest Updates & News</h2>
     <ul class="space-y-6">
         <li class="border-l-4 border-green-400 pl-4">🔥 Upcoming: CSE Gaming Fest MLBB</li>
         <li class="border-l-4 border-green-400 pl-4">🛠️ Website Under Active Development!</li>
-        <li class="border-l-4 border-green-400 pl-4">🏆 Inter Department Gaming Competition 2025 Powered By GIGABYTE AORUS!</li>
-        <li class="border-l-4 border-green-400 pl-4">🎮 CSE Gaming Battle at the GUB CSE Carnival 2024</li>
-        <li class="border-l-4 border-green-400 pl-4">🚀 Official Launch of GUCC VGS: September 2024</li>
+        <li class="border-l-4 border-green-400 pl-4">🚀 Official Launch of The Elder Scrolls IV: Oblivion Remastered</li>
+        <li class="border-l-4 border-green-400 pl-4">🎮 Game Review: Assassin's Creed Shadow </li>
+        <li class="border-l-4 border-green-400 pl-4">🏆 Jarno Opmeer Wins The F1 Esports World Championship 2025!</li>
     </ul>
   </section>
 
   <!-- Activities Section -->
-  <section id="activities" class="py-16 bg-gray-800 px-8 md:px-20">
-    <h2 class="text-3xl font-bold text-green-400 mb-8">Activities</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4">E-Sports Tournaments</h3>
-        <p>Competitive gaming events for FPS, MOBA, and Battle Royale titles across PC and console.</p>
-      </div>
-      <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4">Workshops & Seminars</h3>
-        <p>Hands-on sessions on game development, team strategies, career in gaming industry, and more.</p>
-      </div>
+<section id="activities" class="py-16 bg-gray-800 px-8 md:px-20">
+  <h2 class="text-3xl font-bold text-green-400 mb-8">Activities</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-4">Upcoming: CSE Gaming Fest MLBB</h3>
+      <p>A thrilling Mobile Legends: Bang Bang tournament is on the horizon, promising epic battles and huge engagement from the community.</p>
     </div>
-  </section>
+    
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-4">Inter Department Gaming Competition 2025</h3>
+      <p>An upcoming electrifying tournament powered by GIGABYTE AORUS, where departments compete in popular esports titles.</p>
+    </div>
+    
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-4">Seminar: PC Building 101</h3>
+      <p>In collaboration with PC Builder Bangladesh, participants learned the fundamentals of assembling custom PCs and optimizing hardware for gaming.</p>
+    </div>
+
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-4">CSE Gaming Battle - GUB CSE Carnival 2024</h3>
+      <p>Featured multiple competitive titles where top players of the CSE department clashed for glory during the CSE Carnival 2024.</p>
+    </div>
+    
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="py-6 text-center bg-gray-900 text-gray-500 text-sm">
@@ -136,6 +187,36 @@
     ScrollReveal().reveal('#home-title', { delay: 200, origin: 'top', distance: '50px' });
     ScrollReveal().reveal('section', { delay: 400, origin: 'bottom', distance: '50px', interval: 200 });
   </script>
+
+
+  <!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+  <div class="bg-gray-800 p-8 rounded-lg max-w-md w-full text-center shadow-lg">
+    <h2 class="text-2xl font-bold text-green-400 mb-4">Contact Us</h2>
+    <p class="mb-4 text-gray-300">Feel free to reach out to the GUCC Virtual Gaming Society!</p>
+    <div class="text-left text-gray-300 mb-6 space-y-2">
+      <p><strong>Email:</strong> <a href="faysaltomal02@gmail.com" target="_blank" class="text-green-400 hover:underline">faysaltomal02@gmail.com</a></p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/gucc.vgs" target="_blank" class="text-green-400 hover:underline">facebook.com/gucc.vgs</a></p>
+      <p><strong>Location:</strong> Green University of Bangladesh, Dhaka</p>
+    </div>
+    <button onclick="closeModal()" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- Modal Script -->
+<script>
+  function openModal() {
+    document.getElementById('contactModal').classList.remove('hidden');
+    document.getElementById('contactModal').classList.add('flex');
+  }
+
+  function closeModal() {
+    document.getElementById('contactModal').classList.add('hidden');
+    document.getElementById('contactModal').classList.remove('flex');
+  }
+</script>
 
 </body>
 </html>

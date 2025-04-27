@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | GUCC VGS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Navbar (copy same as your executive.html) -->
+  <!-- ... Navbar code here ... -->
+
+  <section class="px-6 py-10 max-w-4xl mx-auto text-center">
+    <img id="profile-photo" src="" alt="Profile Photo" class="w-32 h-32 mx-auto rounded-full mb-6 object-cover">
+    <h1 id="profile-name" class="text-3xl font-bold mb-2"></h1>
+    <p id="profile-position" class="text-green-400 mb-4"></p>
+    <p id="profile-email" class="text-gray-400 mb-8"></p>
+
+    <div id="profile-links" class="flex justify-center space-x-6">
+      <!-- Dynamic Links will come here -->
+    </div>
+  </section>
+
+  <script>
+    const members = {
+      "Faysal Hossain Tomal": {
+        position: "Chair",
+        email: "faysaltomal02@gmail.com",
+        linkedin: "https://www.linkedin.com/in/faysaltomal/",
+        github: "https://github.com/FaysalHT",
+        facebook: "https://www.facebook.com/FaysalHT02",
+        photo: "assets/images/faysal-hossain-tomal.png"
+      },
+      "M. Tahsinur Rahman": {
+        position: "Vice Chair",
+        email: "ariyanrahman1713@gmail.com",
+        linkedin: "https://www.linkedin.com/in/m-tahsinur-rahman62",
+        github: "https://github.com/Aruuu62",
+        facebook: "https://m.facebook.com/iqbal.abdullah.3572/",
+        photo: "assets/images/m-tahsinur-rahman.png"
+      },
+      "K M Monoarul Islam Shovon": {
+        position: "General Secretary",
+        email: "shovon2565@gmail.com",
+        linkedin: "https://www.linkedin.com/in/k-m-shovon/",
+        github: "https://github.com/Shovon25657",
+        facebook: "https://www.facebook.com/km.shvon.9",
+        photo: "assets/images/k-m-monoarul-islam-shovon.png"
+      },
+      "Muaz Ibn Kamal": {
+        position: "Joint General Secretary",
+        email: "muazibnkamal8@gmail.com",
+        linkedin: "https://www.linkedin.com/in/muaz-ibn-kamal-26252735a/",
+        github: "https://github.com/MuazibnKamal",
+        facebook: "https://www.facebook.com/muazibnkamal.alif.18",
+        photo: "assets/images/muaz-ibn-kamal.png"
+      },
+      "Hasibul Hassan": {
+        position: "Tresurer",
+        email: "hasibulgreen@gmail.com",
+        linkedin: "",
+        github: "",
+        facebook: "",
+        photo: "assets/images/hasibul-hassan.png"
+      },
+      "Dip Barman": {
+        position: "Joint Tresurer",
+        email: "dipbarman1212@gmail.com",
+        linkedin: "https://www.linkedin.com/in/dipbarman",
+        github: "",
+        facebook: "https://www.facebook.com/share/1BdLjDHS88/",
+        photo: "assets/images/dip-barman.png"
+      },
+      "Heaven Bawm": {
+        position: "Organizing Secretary",
+        email: "heavenbawm77@gmail.com",
+        linkedin: "https://www.linkedin.com/in/heaven-bawm-4a79a1295",
+        github: "https://github.com/MrB0T15",
+        facebook: "https://www.facebook.com/share/1G7uEH4JYD/",
+        photo: "assets/images/heaven-bawm.png"
+      },
+      "Nahian Reza Shafin": {
+        position: "Joint Organizing Secretary",
+        email: "shafinnahian401@gmail.com",
+        linkedin: "https://www.linkedin.com/in/nahian-shafin-8a655b272",
+        github: "https://github.com/Shafin2576",
+        facebook: "https://www.facebook.com/prince.shafin.50/",
+        photo: "assets/images/nahian-reza-shafin.png"
+      },
+      "Pronoy Sarker Amit": {
+        position: "Outreach Secretary",
+        email: "pronoysarkeramit@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pronoy-sarker-amit/",
+        github: "https://github.com/PSarker108",
+        facebook: "https://www.facebook.com/pronoy.sarker.479806",
+        photo: "assets/images/pronoy-sarker-amit.png"
+      },
+      "Md Rezanur Bin Shamim": {
+        position: "E-Sports Gaming Secretary",
+        email: "rezanurbinshamim@gmail.com",
+        linkedin: "https://www.linkedin.com/in/rnrezanur/",
+        github: "https://github.com/Rnrezanur",
+        facebook: "https://www.facebook.com/Rnrezanur/",
+        photo: "assets/images/md-rezanur-bin-shamim.png"
+      },
+      "Md. Sazib": {
+        position: "Executive Member",
+        email: "mdsazib.cse@gmail.com",
+        linkedin: "",
+        github: "",
+        facebook: "",
+        photo: "assets/images/md-sazib.png"
+      },
+      "Afiya Humaira": {
+        position: "Executive Member",
+        email: "afiyahumaira999@gmail.com",
+        linkedin: "https://www.linkedin.com/in/afiya-humaira-13a396285",
+        github: "",
+        facebook: "https://www.facebook.com/share/1A8KwRUow2/",
+        photo: "assets/images/afiya-humaira.png"
+      },
+      "Humayra Nur": {
+        position: "Executive Member",
+        email: "anannaanu974@gmail.com",
+        linkedin: "",
+        github: "",
+        facebook: "https://www.facebook.com/anannaanu974",
+        photo: "assets/images/humayra-nur.png"
+      },
+      "Ryan Hasan Sunny": {
+        position: "Graphics & Multimedia Secretary",
+        email: "ryanhasansunny31@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ryan-hasan-sunny-190a65245/",
+        github: "https://github.com/RyanHasanSunny",
+        facebook: "https://www.facebook.com/ryanhasan.sunny7",
+        photo: "assets/images/ryan-hasan-sunny.png"
+      },
+      "Ashraf Zaman": {
+        position: "Graphics & Multimedia Secretary",
+        email: "ashraf636bd@gmail.com",
+        linkedin: "",
+        github: "",
+        facebook: "https://www.facebook.com/share/1Dmi3Cafmr/",
+        photo: "assets/images/ashraf-zaman.png"
+      },
+      "Julqarnaeen Ahmed Jihad": {
+        position: "Graphics & Multimedia Secretary",
+        email: "julqarnaeen2003@gmail.com",
+        linkedin: "",
+        github: "",
+        facebook: "https://www.facebook.com/zulqarnaeen.9",
+        photo: "assets/images/julqarnaeen-ahmed-jihad.png"
+      }
+    };
+  
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+  
+    if (members[name]) {
+      const member = members[name];
+      document.getElementById("profile-photo").src = member.photo;
+      document.getElementById("profile-name").textContent = name;
+      document.getElementById("profile-position").textContent = member.position;
+      document.getElementById("profile-email").textContent = member.email;
+  
+      const linksDiv = document.getElementById("profile-links");
+      if (member.linkedin) {
+        linksDiv.innerHTML += `<a href="${member.linkedin}" target="_blank" class="text-green-400 hover:underline">LinkedIn</a>`;
+      }
+      if (member.github) {
+        linksDiv.innerHTML += `<a href="${member.github}" target="_blank" class="text-green-400 hover:underline">GitHub</a>`;
+      }
+      if (member.facebook) {
+        linksDiv.innerHTML += `<a href="${member.facebook}" target="_blank" class="text-green-400 hover:underline">Facebook</a>`;
+      }
+    } else {
+      document.querySelector('section').innerHTML = "<h1 class='text-2xl font-bold'>Member not found!</h1>";
+    }
+  </script>
+  
+
+</body>
+</html>

@@ -1,36 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Executive Panel | GUCC VGS</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script> <!-- REPLACE your-kit-id with actual FontAwesome kit -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
+
   <!-- Navbar -->
-  <nav class="flex items-center justify-between p-4 bg-gray-800 shadow-md sticky top-0 z-50">
-    <!-- Left: Logo -->
-    <div class="flex items-center">
-      <a href="index.html">
-        <img src="assets/images/VGSwide.png" alt="GUCC VGS Logo" class="h-12 w-auto">
-      </a>
-    </div>
+<nav class="bg-gray-800 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Left: Logo -->
+      <div class="flex-shrink-0">
+        <a href="index.html">
+          <img src="assets/images/VGSwide.png" alt="GUCC VGS Logo" class="h-12 w-auto">
+        </a>
+      </div>
 
-    <!-- Center: Links -->
-    <ul class="flex space-x-6 font-semibold absolute left-1/2 transform -translate-x-1/2">
-      <li><a href="index.html#updates" class="hover:text-green-400">Updates</a></li>
-      <li><a href="index.html#activities" class="hover:text-green-400">Activities</a></li>
-      <li><a href="executive.html" class="hover:text-green-400">Technical Committee</a></li>
-    </ul>
+      <!-- Center: Links -->
+      <div class="hidden md:flex space-x-6 font-semibold">
+        <a href="index.html#updates" class="hover:text-green-400">Updates</a>
+        <a href="index.html#activities" class="hover:text-green-400">Activities</a>
+        <a href="executive.html" class="hover:text-green-400">Committee</a>
+      </div>
 
-    <!-- Right: Something (like a button or icon) -->
-    <div>
-      <a href="contact.html" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
-        Contact
-      </a>
+      <!-- Right: Button -->
+      <div class="hidden md:flex">
+        <button onclick="openModal()" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
+          Contact
+        </button>
+      </div>
+
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden">
+        <button id="menu-toggle" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+    <a href="index.html#updates" class="block hover:text-green-400">Updates</a>
+    <a href="index.html#activities" class="block hover:text-green-400">Activities</a>
+    <a href="executive.html" class="block hover:text-green-400">Technical Committee</a>
+    <a href="javascript:void(0);" onclick="openModal()" class="block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg w-max">
+      Contact
+    </a>    
+  </div>
+</nav>
 
   <!-- Page Title -->
   <section class="text-center py-10">
@@ -43,24 +71,34 @@
     <h2 class="text-2xl font-semibold mb-6 border-b border-green-400 pb-2">Moderation Panel</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <!-- Moderators -->
-      <!-- Repeat this card for each member -->
-      <div onclick="goToProfile('Md. Monirul Islam')" class="member-card">
+      <!-- Moderator 1 -->
+      <div class="member-card">
         <img src="assets/images/md-monirul-islam.png" alt="Md. Monirul Islam" class="member-photo">
         <h3>Md. Monirul Islam</h3>
         <p>Moderator</p>
+        <div class="social-icons">
+          <a href="mailto:monirul@cse.green.edu.bd" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
 
-      <div onclick="goToProfile('Montaser Abdul Quader')" class="member-card">
+      <!-- Moderator 2 -->
+      <div class="member-card">
         <img src="assets/images/montaser-abdul-quader.png" alt="Montaser Abdul Quader" class="member-photo">
         <h3>Montaser Abdul Quader</h3>
         <p>Deputy Moderator</p>
+        <div class="social-icons">
+          <a href="mailto:montaser@cse.green.edu.bd" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
 
-      <div onclick="goToProfile('Jarin Tasnim Tonvi')" class="member-card">
+      <!-- Moderator 3 -->
+      <div class="member-card">
         <img src="assets/images/jarin-tasnim-tonvi.png" alt="Jarin Tasnim Tonvi" class="member-photo">
         <h3>Jarin Tasnim Tonvi</h3>
         <p>Deputy Moderator</p>
+        <div class="social-icons">
+          <a href="mailto:jarin@cse.green.edu.bd" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
 
     </div>
@@ -71,120 +109,215 @@
     <h2 class="text-2xl font-semibold mb-6 border-b border-green-400 pb-2">Wing Panel</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <!-- Wing Panel Members -->
-<div onclick="goToProfile('Faysal Hossain Tomal')" class="member-card">
-    <img src="assets/images/faysal-hossain-tomal.png" alt="Faysal Hossain Tomal" class="member-photo">
-    <h3>Faysal Hossain Tomal</h3>
-    <p>Chair</p>
-  </div>
-  
-  <div onclick="goToProfile('M. Tahsinur Rahman')" class="member-card">
-    <img src="assets/images/m-tahsinur-rahman.png" alt="M. Tahsinur Rahman" class="member-photo">
-    <h3>M. Tahsinur Rahman</h3>
-    <p>Vice Chair</p>
-  </div>
-  
-  <div onclick="goToProfile('K M Monoarul Islam Shovon')" class="member-card">
-    <img src="assets/images/k-m-monoarul-islam-shovon.png" alt="K M Monoarul Islam Shovon" class="member-photo">
-    <h3>K M Monoarul Islam Shovon</h3>
-    <p>General Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Muaz Ibn Kamal')" class="member-card">
-    <img src="assets/images/muaz-ibn-kamal.png" alt="Muaz Ibn Kamal" class="member-photo">
-    <h3>Muaz Ibn Kamal</h3>
-    <p>Joint General Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Hasibul Hassan')" class="member-card">
-    <img src="assets/images/hasibul-hassan.png" alt="Hasibul Hassan" class="member-photo">
-    <h3>Hasibul Hassan</h3>
-    <p>Treasurer</p>
-  </div>
-  
-  <div onclick="goToProfile('Dip Barman')" class="member-card">
-    <img src="assets/images/dip-barman.png" alt="Dip Barman" class="member-photo">
-    <h3>Dip Barman</h3>
-    <p>Joint Treasurer</p>
-  </div>
-  
-  <div onclick="goToProfile('Heaven Bawm')" class="member-card">
-    <img src="assets/images/heaven-bawm.png" alt="Heaven Bawm" class="member-photo">
-    <h3>Heaven Bawm</h3>
-    <p>Organizing Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Nahian Reza Shafin')" class="member-card">
-    <img src="assets/images/nahian-reza-shafin.png" alt="Nahian Reza Shafin" class="member-photo">
-    <h3>Nahian Reza Shafin</h3>
-    <p>Joint Organizing Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Pronoy Sarker Amit')" class="member-card">
-    <img src="assets/images/pronoy-sarker-amit.png" alt="Pronoy Sarker Amit" class="member-photo">
-    <h3>Pronoy Sarker Amit</h3>
-    <p>Outreach Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Md Rezanur Bin Shamim')" class="member-card">
-    <img src="assets/images/md-rezanur-bin-shamim.png" alt="Md Rezanur Bin Shamim" class="member-photo">
-    <h3>Md Rezanur Bin Shamim</h3>
-    <p>E-Sports Gaming Secretary</p>
-  </div>
-  
-  <div onclick="goToProfile('Md. Sazib')" class="member-card">
-    <img src="assets/images/md-sazib.png" alt="Md. Sazib" class="member-photo">
-    <h3>Md. Sazib</h3>
-    <p>Executive Member</p>
-  </div>
-  
-  <div onclick="goToProfile('Afiya Humaira')" class="member-card">
-    <img src="assets/images/afiya-humaira.png" alt="Afiya Humaira" class="member-photo">
-    <h3>Afiya Humaira</h3>
-    <p>Executive Member</p>
-  </div>
-  
-  <div onclick="goToProfile('Humayra Nur')" class="member-card">
-    <img src="assets/images/humayra-nur.png" alt="Humayra Nur" class="member-photo">
-    <h3>Humayra Nur</h3>
-    <p>Executive Member</p>
-  </div>
-  
-  <div onclick="goToProfile('Ryan Hasan Sunny')" class="member-card">
-    <img src="assets/images/ryan-hasan-sunny.png" alt="Ryan Hasan Sunny" class="member-photo">
-    <h3>Ryan Hasan Sunny</h3>
-    <p>Graphics & Multimedia Secretary</p>
-  </div>
+      <!-- Wing Panel Members (START) -->
 
-  <div onclick="goToProfile('Julqarnaeen Ahmed Jihad')" class="member-card">
-    <img src="assets/images/julqarnaeen-ahmed-jihad.png" alt="Julqarnaeen Ahmed Jihad" class="member-photo">
-    <h3>Julqarnaeen Ahmed Jihad</h3>
-    <p>Graphics & Multimedia Secretary</p>
-  </div>
+      <!-- 1. Faysal Hossain Tomal -->
+      <div class="member-card">
+        <img src="assets/images/faysal-hossain-tomal.png" alt="Faysal Hossain Tomal" class="member-photo">
+        <h3>Faysal Hossain Tomal</h3>
+        <p>Chair</p>
+        <div class="social-icons">
+          <a href="mailto:faysaltomal02@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/faysaltomal/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/FaysalHT" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/FaysalHT02" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
 
-  <div onclick="goToProfile('Ashraf Zaman')" class="member-card">
-    <img src="assets/images/ashraf-zaman.png" alt="Ashraf Zaman" class="member-photo">
-    <h3>Ashraf Zaman</h3>
-    <p>Graphics & Multimedia Secretary</p>
-  </div>
-  
+      <!-- 2. M. Tahsinur Rahman -->
+      <div class="member-card">
+        <img src="assets/images/m-tahsinur-rahman.png" alt="M. Tahsinur Rahman" class="member-photo">
+        <h3>M. Tahsinur Rahman</h3>
+        <p>Vice Chair</p>
+        <div class="social-icons">
+          <a href="mailto:ariyanrahman1713@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/m-tahsinur-rahman62" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Aruuu62" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://m.facebook.com/iqbal.abdullah.3572/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 3. K M Monoarul Islam Shovon -->
+      <div class="member-card">
+        <img src="assets/images/k-m-monoarul-islam-shovon.png" alt="K M Monoarul Islam Shovon" class="member-photo">
+        <h3>K M Monoarul Islam Shovon</h3>
+        <p>General Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:shovon2565@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/k-m-shovon/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Shovon25657" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/km.shvon.9" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 4. Muaz Ibn Kamal -->
+      <div class="member-card">
+        <img src="assets/images/muaz-ibn-kamal.png" alt="Muaz Ibn Kamal" class="member-photo">
+        <h3>Muaz Ibn Kamal</h3>
+        <p>Joint General Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:muazibnkamal8@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/muaz-ibn-kamal-26252735a/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/MuazibnKamal" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/muazibnkamal.alif.18" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 5. Hasibul Hassan -->
+      <div class="member-card">
+        <img src="assets/images/hasibul-hassan.png" alt="Hasibul Hassan" class="member-photo">
+        <h3>Hasibul Hassan</h3>
+        <p>Treasurer</p>
+        <div class="social-icons">
+          <a href="mailto:hasibulgreen@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <!-- 6. Dip Barman -->
+      <div class="member-card">
+        <img src="assets/images/dip-barman.png" alt="Dip Barman" class="member-photo">
+        <h3>Dip Barman</h3>
+        <p>Joint Treasurer</p>
+        <div class="social-icons">
+          <a href="mailto:dipbarman1212@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/dipbarman" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/share/1BdLjDHS88/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 7. Heaven Bawm -->
+      <div class="member-card">
+        <img src="assets/images/heaven-bawm.png" alt="Heaven Bawm" class="member-photo">
+        <h3>Heaven Bawm</h3>
+        <p>Organizing Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:heavenbawm77@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/heaven-bawm-4a79a1295" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/MrB0T15" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/share/1G7uEH4JYD/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 8. Nahian Reza Shafin -->
+      <div class="member-card">
+        <img src="assets/images/nahian-reza-shafin.png" alt="Nahian Reza Shafin" class="member-photo">
+        <h3>Nahian Reza Shafin</h3>
+        <p>Joint Organizing Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:shafinnahian401@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/nahian-shafin-8a655b272" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Shafin2576" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/prince.shafin.50/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 9. Pronoy Sarker Amit -->
+      <div class="member-card">
+        <img src="assets/images/pronoy-sarker-amit.png" alt="Pronoy Sarker Amit" class="member-photo">
+        <h3>Pronoy Sarker Amit</h3>
+        <p>Outreach Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:pronoysarkeramit@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/pronoy-sarker-amit/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/PSarker108" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/pronoy.sarker.479806" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 10. Md Rezanur Bin Shamim -->
+      <div class="member-card">
+        <img src="assets/images/md-rezanur-bin-shamim.png" alt="Md Rezanur Bin Shamim" class="member-photo">
+        <h3>Md Rezanur Bin Shamim</h3>
+        <p>E-Sports Gaming Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:rezanurbinshamim@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/rnrezanur/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Rnrezanur" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/Rnrezanur/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 11. Md. Sazib -->
+      <div class="member-card">
+        <img src="assets/images/md-sazib.png" alt="Md. Sazib" class="member-photo">
+        <h3>Md. Sazib</h3>
+        <p>Executive Member</p>
+        <div class="social-icons">
+          <a href="mailto:mdsazib.cse@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <!-- 12. Afiya Humaira -->
+      <div class="member-card">
+        <img src="assets/images/afiya-humaira.png" alt="Afiya Humaira" class="member-photo">
+        <h3>Afiya Humaira</h3>
+        <p>Executive Member</p>
+        <div class="social-icons">
+          <a href="mailto:afiyahumaira999@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/afiya-humaira-13a396285" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/share/1A8KwRUow2/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 13. Humayra Nur -->
+      <div class="member-card">
+        <img src="assets/images/humayra-nur.png" alt="Humayra Nur" class="member-photo">
+        <h3>Humayra Nur</h3>
+        <p>Executive Member</p>
+        <div class="social-icons">
+          <a href="mailto:anannaanu974@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/anannaanu974" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 14. Ryan Hasan Sunny -->
+      <div class="member-card">
+        <img src="assets/images/ryan-hasan-sunny.png" alt="Ryan Hasan Sunny" class="member-photo">
+        <h3>Ryan Hasan Sunny</h3>
+        <p>Graphics & Multimedia Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:ryanhasansunny31@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/ryan-hasan-sunny-190a65245/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/RyanHasanSunny" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.facebook.com/ryanhasan.sunny7" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 15. Julqarnaeen Ahmed Jihad -->
+      <div class="member-card">
+        <img src="assets/images/julqarnaeen-ahmed-jihad.png" alt="Julqarnaeen Ahmed Jihad" class="member-photo">
+        <h3>Julqarnaeen Ahmed Jihad</h3>
+        <p>Graphics & Multimedia Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:julqarnaeen2003@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/zulqarnaeen.9" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- 16. Ashraf Zaman -->
+      <div class="member-card">
+        <img src="assets/images/ashraf-zaman.png" alt="Ashraf Zaman" class="member-photo">
+        <h3>Ashraf Zaman</h3>
+        <p>Graphics & Multimedia Secretary</p>
+        <div class="social-icons">
+          <a href="mailto:ashraf636bd@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/share/1Dmi3Cafmr/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Wing Panel Members (END) -->
+
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="py-6 text-center bg-gray-900 text-gray-500 text-sm">
     © 2025 GUCC Virtual Gaming Society. Built with ❤️ by 
     <a href="https://github.com/FaysalHT" target="_blank" class="text-green-400 hover:underline flex items-center justify-center">
-        <img src="https://github.com/FaysalHT.png" alt="GitHub Profile" class="w-6 h-6 rounded-full mr-2">
-        Faysal Hossain Tomal
+      <img src="https://github.com/FaysalHT.png" alt="GitHub Profile" class="w-6 h-6 rounded-full mr-2">
+      Faysal Hossain Tomal
     </a>
   </footer>
-
-  <!-- JavaScript -->
-  <script>
-    function goToProfile(name) {
-      window.location.href = `profile.html?name=${encodeURIComponent(name)}`;
-    }
-  </script>
 
   <!-- Tailwind Custom Styles -->
   <style>
@@ -193,7 +326,6 @@
       padding: 1.5rem;
       border-radius: 0.75rem;
       text-align: center;
-      cursor: pointer;
       transition: all 0.3s;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
@@ -217,8 +349,54 @@
     .member-card p {
       font-size: 0.875rem;
       color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+    .social-icons {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .social-icon {
+      color: #9ca3af;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      color: #22c55e;
+      transform: scale(1.2);
     }
   </style>
+
+  <!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+  <div class="bg-gray-800 p-8 rounded-lg max-w-md w-full text-center shadow-lg">
+    <h2 class="text-2xl font-bold text-green-400 mb-4">Contact Us</h2>
+    <p class="mb-4 text-gray-300">Feel free to reach out to the GUCC Virtual Gaming Society!</p>
+    <div class="text-left text-gray-300 mb-6 space-y-2">
+      <p><strong>Email:</strong> <a href="faysaltomal02@gmail.com" target="_blank" class="text-green-400 hover:underline">faysaltomal02@gmail.com</a></p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/gucc.vgs" target="_blank" class="text-green-400 hover:underline">facebook.com/gucc.vgs</a></p>
+      <p><strong>Location:</strong> Green University of Bangladesh, Dhaka</p>
+    </div>
+    <button onclick="closeModal()" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- Modal Script -->
+<script>
+  function openModal() {
+    document.getElementById('contactModal').classList.remove('hidden');
+    document.getElementById('contactModal').classList.add('flex');
+  }
+
+  function closeModal() {
+    document.getElementById('contactModal').classList.add('hidden');
+    document.getElementById('contactModal').classList.remove('flex');
+  }
+</script>
+
 
 </body>
 </html>
